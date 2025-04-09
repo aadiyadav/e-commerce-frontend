@@ -1,0 +1,38 @@
+body{
+    background-color: white;
+}
+
+.userTable{
+    background-color: white;
+}
+
+.userTable th {
+    border: 1px solid;
+    font-size: 1rem;
+}
+
+.userTable td {
+    border: 1px solid;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+    display: none
+}
+
+.carousel {
+    transition: transform 0.3s ease-in-out;
+}
+
+.border-2{
+    border: solid 2px rgb(179, 176, 176)
+}
+
+.border {
+    border: solid 1px rgb(179, 176, 176)
+}
+
+button{
+    cursor: pointer;
+}
