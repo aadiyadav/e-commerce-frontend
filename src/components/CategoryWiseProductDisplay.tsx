@@ -15,7 +15,7 @@ interface Product {
 interface CategoryWiseProductDisplayProps {
   category: string;
   heading: string;
-  sortBy: 'asc' | 'dsc'; // Assuming sortBy can be either 'asc' or 'dsc'
+  sortBy: string // Assuming sortBy can be either 'asc' or 'dsc'
 }
 
 const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({ category, heading, sortBy }) => {

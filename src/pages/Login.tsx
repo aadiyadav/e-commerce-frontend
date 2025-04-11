@@ -19,7 +19,14 @@ const Login: React.FC = () => {
   });
 
   const navigate = useNavigate();
-  const { fetchUserDetails, cartCountFunc } = useContext(Context);
+  const context = useContext(Context);
+
+  // Check if context is null
+  if (!context) {
+    return <div>Error: Context is not available</div>;
+  }
+
+  const { fetchUserDetails, cartCountFunc } = context;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setData((prev) => ({

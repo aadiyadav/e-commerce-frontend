@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Api from "../common";
 import { useContext, useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa6"
+import { FaStar } from "react-icons/fa6";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import displayINRCurrency from "../helpers/displayCurrency";
 import { AiFillSafetyCertificate } from "react-icons/ai";
@@ -13,26 +13,35 @@ import CategoryWiseProductDisplay from "../components/CategoryWiseProductDisplay
 import addToCart from "../helpers/addToCart";
 import Context from "../context";
 
+interface ProductData {
+  _id: string,
+  productName: string;
+  brandName: string;
+  category: string;
+  productImage: string[];
+  description: string;
+  price: number;
+  sellingPrice: number;
+}
 
 const ProductDetails = () => {
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({
+  const [loading, setLoading] = useState<boolean>(false);
+  const [data, setData] = useState<ProductData>({
+    _id: "",
     productName: "",
     brandName: "",
     category: "",
     productImage: [],
     description: "",
-    price: "",
-    sellingPrice: ""
+    price: 0,
+    sellingPrice: 0
   });
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-  const [zoomImage, setZoomImage] = useState(false)
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [zoomImage, setZoomImage] = useState<boolean>(false);
 
   const loadingImages = new Array(4).fill(null);
-  const params = useParams();
-
-  const {cartCountFunc} = useContext(Context)
-  const navigate = useNavigate()
+  const params = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   const fetchDetails = async () => {
     setLoading(true);
@@ -51,24 +60,31 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    fetchDetails()
-    window.scrollTo({top: 0, behavior: "smooth"})
+    fetchDetails();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [params]);
+  const context = useContext(Context);
 
-  const handleImageClick = (index) => {
+  if (!context) {
+    return <div>Error: Context is not available</div>;
+  }
+
+  const { cartCountFunc } = context;
+
+  const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
   };
 
-  const handleAddToCart = async (id) => {
-    await addToCart(id)
-    cartCountFunc()
-  }
+  const handleAddToCart = async (id: string) => {
+    await addToCart(id);
+    cartCountFunc();
+  };
 
-  const handleBuy = async(id) => {
-    await addToCart(id)
-    cartCountFunc()
-    navigate('/cart')
-  }
+  const handleBuy = async (id: string) => {
+    await addToCart(id);
+    cartCountFunc();
+    navigate('/cart');
+  };
 
   return (
     <div className="lg:py-16 md:py-10 py-4">

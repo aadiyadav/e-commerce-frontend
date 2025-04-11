@@ -1,6 +1,6 @@
 import Api from "../common"
 
-const fetchCategory = async (category) => {
+const fetchCategory = async (category: string) => {
     const res = await fetch(Api.categoryWiseProduct.url, {
         method: Api.categoryWiseProduct.method,
         headers: {

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Api from "../common";
 import { toast } from "react-toastify";
 import { setUserDetails } from "../store/userSlice";
+import { RootState } from "../store/store";
+import { User } from "../store/types";
 import { useContext, useEffect, useState } from "react";
 import ROLE from "../common/role";
 import logo from "../assets/logo.png";
@@ -14,10 +16,9 @@ import Context from "../context";
 const Header: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const user = useSelector((state) => state?.user?.user)
+  const user = useSelector((state: RootState) => state.user.user) as User | null;
   const dispatch = useDispatch();
   const context = useContext(Context);
-
   const [showAdmin, setShowAdmin] = useState<boolean>(false);
   const [search, setSearch] = useState<string | undefined>(location?.search?.split("=")[1]);
 

@@ -1,7 +1,7 @@
 import { toast } from "react-toastify"
 import Api from "../common"
 
-async function addToCart (id){
+async function addToCart (id: string){
     const res = await fetch(Api.addToCart.url,{
         method: Api.addToCart.method,
         credentials: "include",

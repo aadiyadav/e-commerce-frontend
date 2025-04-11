@@ -3,9 +3,11 @@ import { useSelector } from "react-redux"
 import { Link, Outlet } from "react-router-dom"
 import { FaUserGroup } from "react-icons/fa6"
 import { AiFillProduct } from "react-icons/ai"
+import { RootState } from "../store/store";
+import { User } from "../store/types"
 
 const Admin = () => {
-    const user = useSelector(state => state?.user?.user)
+    const user = useSelector((state: RootState) => state.user.user) as User | null;
     return (
     <div className="md:flex hidden min-h-[calc(100vh-70px)]">
         <aside className="bg-white w-80 border-r">
