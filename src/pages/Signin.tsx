@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import imageToBase64 from "../helpers/imageToBase64.tsx";
 import Api from "../common/index.tsx";
 import { toast } from "react-toastify";
+import signin from "../assets/signin.gif"
 
 interface SigninData {
   name: string;
@@ -78,7 +79,7 @@ const Signin = () => {
         <div className="text-center md:py-6 py-3 md:text-2xl text-xl font-dmsans font-semibold">Hey, welcome back to Stud.io!</div>
         <div className="relative mx-auto md:size-32 size-24 md:mt-4 mt-2 overflow-hidden content-center rounded-full">
           <div>
-            <img src={data.profilePic || `src/assets/signin.gif`} alt="" className="object-cover" />
+            <img src={data.profilePic || signin} alt="" className="object-cover" />
           </div>
           {!data.profilePic && (
             <form>

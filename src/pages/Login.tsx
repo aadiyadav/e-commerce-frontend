@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Api from "../common";
 import { toast } from "react-toastify";
 import Context from "../context";
+import signin from "../assets/signin.gif"
 
 interface LoginData {
   email: string;
@@ -63,7 +64,7 @@ const Login: React.FC = () => {
     <section className="mx-auto container px-4 py-8 flex items-center">
       <div className="border-2 shadow-xl w-full max-w-lg mx-auto p-3 rounded-md">
         <div className="text-center md:py-5 py-3 md:text-2xl text-xl font-dmsans font-semibold">Hey, welcome to Stud.io!</div>
-        <img src="src/assets/signin.gif" alt="" className="mx-auto md:size-32 size-24 md:mt-4 mt-2 rounded-full" />
+        <img src={signin} alt="" className="mx-auto md:size-32 size-24 md:mt-4 mt-2 rounded-full" />
         <form onSubmit={handleSubmit} className="md:py-6 py-2 md:px-8 px-2 md:text-base text-sm font-roboto">
           <div className="bg-pink-900 px-4 py-2 rounded-full my-4">
             <input
