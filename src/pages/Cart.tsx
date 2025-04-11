@@ -19,7 +19,7 @@ const Cart = () => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const context = useContext(Context);
-  const loadingData = useState<null[]>(new Array(context?.cartCount).fill(null));
+  const loadingData = new Array(13).fill(null)
 
   const fetchData = async () => {
     const res = await fetch(Api.showCart.url, {
@@ -102,7 +102,7 @@ const Cart = () => {
             <div className="md:w-2/3 w-full">
               {loading ? (
                 loadingData.map((el, index) => (
-                  <div key={index} className="w-full rounded md:h-32 h-28 my-3 bg-slate-100 animate-pulse"></div>
+                  <div key={index} className="w-full rounded md:h-32 h-28 my-3 bg-slate-100 animate-pulse">{el}</div>
                 ))
               ) : (
                 data.map((el, index) => (
