@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react"
 
 const images = [
-  "src/assets/banner/img1.webp",
-  "src/assets/banner/img2.webp",
-  "src/assets/banner/img3.jpg",
-  "src/assets/banner/img4.jpg",
-  "src/assets/banner/img5.webp"
+  "../assets/banner/img1.webp",
+  "../assets/banner/img2.webp",
+  "../assets/banner/img3.jpg",
+  "../assets/banner/img4.jpg",
+  "../assets/banner/img5.webp"
 ]
 
 const mobileImages = [
-  "src/assets/banner/img2_mobile.webp",
-  "src/assets/banner/img3_mobile.jpg",
-  "src/assets/banner/img4_mobile.jpg",
+  "../assets/banner/img2_mobile.webp",
+  "../assets/banner/img3_mobile.jpg",
+  "../assets/banner/img4_mobile.jpg",
 ];
 
 const BannerProduct = () => {
