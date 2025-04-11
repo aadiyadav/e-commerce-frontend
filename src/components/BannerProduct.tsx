@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react"
 
-const images = [
-  "../assets/banner/img1.webp",
-  "../assets/banner/img2.webp",
-  "../assets/banner/img3.jpg",
-  "../assets/banner/img4.jpg",
-  "../assets/banner/img5.webp"
-]
+import img1 from "../assets/banner/img1.webp";
+import img2 from "../assets/banner/img2.webp";
+import img3 from "../assets/banner/img3.jpg";
+import img4 from "../assets/banner/img4.jpg";
+import img5 from "../assets/banner/img5.webp";
 
-const mobileImages = [
-  "../assets/banner/img2_mobile.webp",
-  "../assets/banner/img3_mobile.jpg",
-  "../assets/banner/img4_mobile.jpg",
-];
+import mobileImg2 from "../assets/banner/img2_mobile.webp";
+import mobileImg3 from "../assets/banner/img3_mobile.jpg";
+import mobileImg4 from "../assets/banner/img4_mobile.jpg";
+
+const images = [img1, img2, img3, img4, img5];
+const mobileImages = [mobileImg2, mobileImg3, mobileImg4];
 
 const BannerProduct = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
