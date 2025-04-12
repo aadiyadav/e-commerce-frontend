@@ -19,7 +19,7 @@ const AllProducts = () => {
 
   useEffect(() => {
     getAllProducts()
-  }, [allProducts])
+  }, [])
 
   return (
     <div className="px-4 py-4 m-4 bg-white rounded-sm">
