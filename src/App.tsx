@@ -20,6 +20,7 @@ function App(){
     })
 
     const dataApi = await dataRes.json()
+    console.log("dataApi", dataApi)
 
     if (dataApi.success){
       console.log("successss")
