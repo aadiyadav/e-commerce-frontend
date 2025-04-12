@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom"
 import Footer from "./components/Footer"
 import Header from "./components/Header"
 import { ToastContainer } from "react-toastify"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Api from "./common"
 import Context from "./context"
 import { useDispatch } from "react-redux"
@@ -20,10 +20,8 @@ function App(){
     })
 
     const dataApi = await dataRes.json()
-    console.log("dataApi", dataApi)
 
     if (dataApi.success){
-      console.log("successss")
       dispatch(setUserDetails(dataApi.data))
     }
   }
@@ -39,10 +37,10 @@ function App(){
     setCartCount(dataApi?.data)
   }
 
-  // useEffect(() => {
-  //   fetchUserDetails()
-  //   cartCountFunc()
-  // }, [])
+  useEffect(() => {
+    fetchUserDetails()
+    cartCountFunc()
+  }, [])
 
   return (
     <>
