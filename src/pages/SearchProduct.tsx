@@ -30,7 +30,7 @@ const SearchProduct: React.FC = () => {
   }, [query]);
 
   return (
-    <div className="md:py-12 md:px-28 p-8">
+    <div className="md:py-12 md:px-28 p-8 min-h-[80vh]">
       {loading ? (
         <div className="text-xl font-medium text-center font-dmsans">Loading...</div>
       ) : data.length === 0 ? (
