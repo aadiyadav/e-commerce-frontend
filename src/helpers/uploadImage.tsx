@@ -1,4 +1,4 @@
-const url = `https://res.cloudinary.com//${import.meta.env.VITE_CLOUD_NAME}/image/upload`
+const url = `res.cloudinary.com/${import.meta.env.VITE_CLOUD_NAME}/image/upload`
 
 const uploadImage = async (image: File) => {
     const formData = new FormData()
