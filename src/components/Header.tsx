@@ -10,7 +10,7 @@ import { RootState } from "../store/store";
 import { User } from "../store/types";
 import { useContext, useEffect, useState } from "react";
 import ROLE from "../common/role";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.svg";
 import Context from "../context";
 
 const Header: React.FC = () => {
