@@ -31,7 +31,7 @@ const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({
   };
 
   const handleOnChangeSortBy = () => {
-    if (sortBy === 'dsc') {
+    if (sortBy === 'asc') {
       setData(prev => [...prev].sort((a, b) => a.sellingPrice - b.sellingPrice));
     } else {
       setData(prev => [...prev].sort((a, b) => b.sellingPrice - a.sellingPrice));
