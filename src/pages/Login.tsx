@@ -52,9 +52,9 @@ const Login: React.FC = () => {
 
     if (dataApi.success) {
       toast.success(dataApi.message);
+      navigate('/');
       fetchUserDetails();
       cartCountFunc();
-      navigate('/');
     } else {
       toast.error(dataApi.message);
     }
