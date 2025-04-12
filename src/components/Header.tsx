@@ -54,7 +54,7 @@ const Header: React.FC = () => {
     <header className="shadow-md h-16 bg-white fixed w-full z-40">
       <div className="h-full flex justify-between items-center lg:px-16 px-3 sm:border-b">
         <Link to={'/'}>
-          <img src={logo} alt="Stud.io" className="sm:w-40 w-32 font-bold text-3xl" />
+          <img src={logo} alt="Stud.io" className="w-32 font-bold text-3xl" />
         </Link>
         <div className={`sm:flex items-center border-black border rounded-full hidden focus-within:shadow-md ${user?._id ? ("md:ml-20") : ("mr-14")}`}>
           <input
