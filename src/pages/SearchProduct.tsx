@@ -1,7 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import Api from "../common";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import displayINRCurrency from "../helpers/displayCurrency";
+import debounce from "lodash.debounce"
 
 interface Product {
   _id: string;
@@ -17,17 +18,30 @@ const SearchProduct: React.FC = () => {
   const [data, setData] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const fetchProduct = async () => {
-    setLoading(true);
-    const res = await fetch(Api.searchProdct.url + query.search);
-    const resData = await res.json();
-    setLoading(false);
-    if (resData.success) setData(resData.data);
-  };
+  const fetchProduct = useCallback(
+    debounce(async (search: string) => {
+      try {
+        const res = await fetch(Api.searchProdct.url + search);
+        const resData = await res.json();
+        if (resData.success) setData(resData.data);
+        else setData([]);
+      } catch (err) {
+        console.log(err)
+        setData([]);
+      }
+      setLoading(false);
+    }, 600), // 400ms debounce
+    []
+  );
 
   useEffect(() => {
-    fetchProduct();
-  }, [query]);
+    setLoading(true);
+    fetchProduct(query.search);
+    // Cancel debounce on unmount or query change
+    return () => {
+      fetchProduct.cancel();
+    };
+  }, [query.search, fetchProduct]);
 
   return (
     <div className="md:py-12 md:px-28 p-8 min-h-[80vh]">
