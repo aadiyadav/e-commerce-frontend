@@ -64,8 +64,8 @@ const Header: React.FC = () => {
             value={search}
             className="focus:outline-none flex items-center pl-2 mx-2 md:w-72 font-dmsans"
           />
-          <div className="bg-red-300 w-10 rounded-r-full flex justify-center items-center py-0.5">
-            <CiSearch size={22} />
+          <div className="bg-orange-400 hover:bg-orange-500 transition-all cursor-pointer w-10 rounded-r-full flex justify-center items-center py-0.5">
+            <CiSearch size={22}/>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ const Header: React.FC = () => {
               {user?._id && (
                 <div className="flex items-center md:gap-2">
                   {user?.profilePic ? (
-                    <div className="flex flex-col items-center ml-2">
+                    <div className="flex flex-col items-center ml-2 hover:scale-110 transition-all">
                       <img
                         src={user?.profilePic}
                         alt={user?.name}
@@ -96,7 +96,7 @@ const Header: React.FC = () => {
                     <MdAccountCircle />
                   )}
                   <Link to={'/cart'} className="relative">
-                    <IoMdCart className="cursor-pointer md:size-8 size-7" />
+                    <IoMdCart className="cursor-pointer md:size-8 size-7 hover:scale-110 transition-all" />
                     <div className="absolute text-[13px] font-extrabold -top-2 -right-2 w-5 h-5 border-2 flex items-center justify-center pt-[0.5px] border-black rounded-full bg-white font-roboto">
                       {context?.cartCount}
                     </div>
@@ -104,17 +104,37 @@ const Header: React.FC = () => {
                 </div>
               )}
               {user?._id ? (
-                <button
-                  className="sm:ml-0 ml-1 text-lg pt-1 pb-1.5 md:px-5 px-3 border rounded-full bg-orange-600 text-white font-inria"
-                  onClick={handleLogOut}
-                >
-                  Logout
+                <button className="animated-button font-teko" onClick={handleLogOut}>
+                  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
+                  <span className="text pt-1">LOGOUT</span>
+                  <span className="circle"></span>
+                  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
                 </button>
+
               ) : (
-                <Link to={'/login'} className="flex items-center">
-                  <button className="sm:ml-0 ml-1 text-lg pt-1 pb-1.5 md:px-5 px-3 border rounded-full bg-orange-600 text-white font-inria">
-                    Login
-                  </button>
+                <Link to={'/signup'} className="flex items-center">
+                  <button className="animated-button font-teko">
+                  <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
+                  <span className="text pt-1">Sign-Up</span>
+                  <span className="circle"></span>
+                  <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                    ></path>
+                  </svg>
+                </button>
                 </Link>
               )}
             </div>

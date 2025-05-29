@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import Home from '../pages/Home'
 import App from '../App'
-import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword";
 import Signin from "../pages/Signin";
 import Admin from "../pages/Admin";
@@ -11,6 +10,8 @@ import CategoryProduct from "../pages/CategoryProduct";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
+import Error from "../pages/Error";
+import Signup from "../pages/Signup";
 
 const routes: RouteObject[] = [
     {
@@ -22,8 +23,8 @@ const routes: RouteObject[] = [
                 element: <Home/>
             },
             {
-                path: 'login',
-                element: <Login/>
+                path: 'signup',
+                element: <Signup/>
             },
             {
                 path: 'forgot_password',
@@ -62,6 +63,9 @@ const routes: RouteObject[] = [
                         element: <AllProducts/>
                     }
                 ]
+            }, {
+                path: '*',
+                element: <Error/>
             }
         ]
     }

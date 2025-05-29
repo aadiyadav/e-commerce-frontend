@@ -59,7 +59,7 @@ const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({
             ))
           ) : (
             data.map((el) => (
-              <Link to={'/product/' + el._id} key={el._id} className="shadow-sm border-2 rounded-md bg-white">
+              <Link to={'/product/' + el._id} key={el._id} className="shadow-sm border-2 border-slate-400 rounded-md bg-white">
                 <div className="flex justify-center mx-auto md:h-56 h-32 w-full items-center rounded-t-md border-gray-300 mix-blend-multiply md:p-4 p-2">
                   <img src={el.productImage[0]} alt="" className="h-full hover:scale-110 transition-all mix-blend-multiply object-contain" />
                 </div>
@@ -67,7 +67,7 @@ const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({
                 <div className="md:p-3 p-2 md:h-32 h-20 flex flex-col justify-between md:text-base text-xs rounded-b-md">
                   <div className="flex flex-col">
                     <div className="md:text-lg text-sm text-ellipsis line-clamp-1 font-semibold font-roboto">{el.productName}</div>
-                    <div className="text-gray-700 capitalize font-merri">{el.category}</div>
+                    <div className="text-bluelogo capitalize font-merri">{el.category}</div>
                   </div>
                   <div className="flex gap-2 py-1 font-mont">
                     <div className="font-medium">{displayINRCurrency(el.sellingPrice)}</div>

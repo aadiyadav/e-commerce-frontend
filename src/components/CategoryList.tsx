@@ -33,7 +33,7 @@ const CategoryList = () => {
 
   return (
     <div className="md:p-4 py-4">
-      <div className="flex justify-between gap-4 overflow-scroll scrollbar-none px-4">
+      <div className="flex justify-between overflow-scroll scrollbar-none p-2">
       {
         loading ? (
           categoryLoading.map((el, index) => {
@@ -42,9 +42,9 @@ const CategoryList = () => {
         ) : (
         categoryProduct.map((product, index) => {
           return(
-            <Link to={"/product-category/"+product?.category} className="cursor-pointer" key={index}>
-              <div className="md:w-24 md:h-24 w-14 h-14 rounded-full border-2 border-gray-300 p-3 flex items-center justify-center">
-                <img src={product?.productImage[0]} alt={product?.category} className="h-full object-scale-down mix-blend-multiply hover:scale-125 transition-all overflow-hidden" />
+            <Link to={"/product-category/"+product?.category} className="cursor-pointer md:hover:scale-[120%] transition-all p-2" key={index}>
+              <div className="md:w-24 md:h-24 w-14 h-14 rounded-full border-2 border-gray-300 md:p-3 p-2 flex items-center justify-center">
+                <img src={product?.productImage[0]} alt={product?.category} className="h-full object-scale-down mix-blend-multiply overflow-hidden" />
               </div>
               <div className="text-center capitalize md:text-lg text-xs font-inria">{product?.category}</div>
             </Link>

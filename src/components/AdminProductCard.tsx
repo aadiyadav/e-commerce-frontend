@@ -21,7 +21,7 @@ interface AdminProductCardProps {
 const AdminProductCard: React.FC<AdminProductCardProps> = ({ product, fetchProducts }) => {
   const [openEdit, setOpenEdit] = useState<boolean>(false);
   return (
-    <div className="w-40 border relative shadow-md shadow-zinc-300 p-2 hover:bg-gray-100 transition-all duration-150 cursor-pointer rounded-md">
+    <div className="w-40 border border-slate-400 relative shadow-md shadow-zinc-300 p-2 hover:bg-gray-100 transition-all duration-150 cursor-pointer rounded-md">
       <div className="h-36 flex justify-center items-center my-2">
         <img src={product?.productImage[0]} alt="" className="mx-auto max-h-full mix-blend-multiply" />
       </div>

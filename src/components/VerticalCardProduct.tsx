@@ -55,11 +55,11 @@ const VerticalCardProduct: React.FC<VerticalCardProductProps> = ({ category, hea
 
   return (
     <div className="md:px-8 px-4 py-4">
-      <div className="md:text-2xl font-bold px-4 font-poppins">{heading}</div>
-      <div className="flex items-center md:pt-7 pt-3 relative">
+      <div className="md:text-2xl md:ml-6 ml-4 font-semibold px-4 font-poppins text-bluelogo">{heading}</div>
+      <div className="flex items-center md:pt-3 pt-2 relative">
         <div className="flex justify-between w-full absolute md:text-3xl text-2xl">
-          <div className="cursor-pointer" onClick={scrollLeft}><IoIosArrowDropleftCircle /></div>
-          <div className="cursor-pointer" onClick={scrollRight}><IoIosArrowDroprightCircle /></div>
+          <div className="cursor-pointer" onClick={scrollLeft}><IoIosArrowDropleftCircle className="rounded-full text-bluelogo" /></div>
+          <div className="cursor-pointer" onClick={scrollRight}><IoIosArrowDroprightCircle className="rounded-full text-bluelogo" /></div>
         </div>
         <div className="flex items-center gap-5 overflow-x-scroll scrollbar-none md:mx-10 mx-8" ref={scrollElement}>
           {loading ? (
@@ -70,7 +70,7 @@ const VerticalCardProduct: React.FC<VerticalCardProductProps> = ({ category, hea
             ))
           ) : (
             data.map((el) => (
-              <Link to={'/product/' + el._id} key={el._id} className="shadow-sm border-2 rounded-md">
+              <Link to={'/product/' + el._id} key={el._id} className="shadow-sm border-2 border-slate-400 rounded-md">
                 <div className="flex justify-center mx-auto md:h-56 h-32 md:w-72 w-40 items-center rounded-t-md border-gray-300 mix-blend-multiply md:p-4 p-2">
                   <img src={el.productImage[0]} alt="" className="h-full hover:scale-110 transition-all mix-blend-multiply object-contain" />
                 </div>
@@ -78,7 +78,7 @@ const VerticalCardProduct: React.FC<VerticalCardProductProps> = ({ category, hea
                 <div className="md:p-3 p-2 md:h-32 h-20 md:w-72 w-48 flex flex-col justify-between md:text-base text-xs rounded-b-md">
                   <div className="flex flex-col">
                     <div className="md:text-lg/6 text-sm text-ellipsis md:line-clamp-2 line-clamp-1 font-semibold font-roboto">{el.productName}</div>
-                    <div className="text-gray-700 capitalize text-sm font-merri">{el.category}</div>
+                    <div className="text-bluelogo capitalize text-sm font-merri">{el.category}</div>
                   </div>
                   <div className="flex gap-1 py-1 font-mont">
                     <div className="font-medium">{displayINRCurrency(el.sellingPrice)}</div>
