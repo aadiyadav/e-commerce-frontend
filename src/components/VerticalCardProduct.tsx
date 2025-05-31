@@ -54,7 +54,7 @@ const VerticalCardProduct: React.FC<VerticalCardProductProps> = ({ category, hea
   }, [category]);
 
   return (
-    <div className="md:px-8 px-4 py-4">
+    <div className="md:px-6 lg:px-10 px-4 py-4">
       <div className="md:text-2xl md:ml-6 ml-4 font-semibold px-4 font-poppins text-bluelogo">{heading}</div>
       <div className="flex items-center md:pt-3 pt-2 relative">
         <div className="flex justify-between w-full absolute md:text-3xl text-2xl">

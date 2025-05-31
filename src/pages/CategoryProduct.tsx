@@ -24,7 +24,7 @@ const CategoryProduct = () => {
         <div className="w-full h-[610px] md:flex overflow-y-scroll border rounded bg-slate-50 md:ml-10">
           <div className="md:hidden flex justify-center pt-6 font-bold">
             <select name="sort" id="" onChange={(e) => setSort(e.target.value)} value={sort}
-              className="px-10 py-2 rounded-lg font-bold border-2 shadow-lg focus:border-gray-400 outline-none">
+              className="px-10 py-2 rounded-lg font-bold border shadow-lg focus:border-slate-600 border-slate-400 outline-none">
               <option value="">Sort Price</option>
               <option value="asc" className="font-semibold">Low to High</option>
               <option value="dsc" className="font-semibold">High to Low</option>
