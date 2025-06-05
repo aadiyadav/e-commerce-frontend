@@ -49,7 +49,7 @@ const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({
   return (
     <div className="py-4 w-full md:px-6 lg:px-10 px-4">
       <div className="md:text-2xl md:ml-6 ml-4 font-semibold px-4 font-poppins">{heading}</div>
-      <div className="md:pt-6 pt-4 grid grid-cols-[repeat(auto-fit,minmax(200px,300px))] justify-around items-center md:gap-8 gap-4 md:px-6 px-10">
+      <div className="md:py-6 py-4 grid grid-cols-[repeat(auto-fit,minmax(200px,300px))] justify-around items-center md:gap-8 gap-4 md:px-6 px-10">
         {
           loading ? (
             loadingList.map((el, index) => (
@@ -58,7 +58,7 @@ const CategoryWiseProductDisplay: React.FC<CategoryWiseProductDisplayProps> = ({
               </div>
             ))
           ) : (
-            data.slice(0, 4).map((el) => (
+            data.map((el) => (
               <Link to={'/product/' + el._id} key={el._id} className="shadow-sm border-2 border-slate-400 rounded-md bg-white">
                 <div className="flex justify-center mx-auto md:h-56 h-32 w-full items-center rounded-t-md border-gray-300 mix-blend-multiply md:p-4 p-2">
                   <img src={el.productImage[0]} alt="" className="h-full hover:scale-110 transition-all mix-blend-multiply object-contain" />

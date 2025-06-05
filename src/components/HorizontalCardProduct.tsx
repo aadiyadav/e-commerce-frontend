@@ -31,10 +31,12 @@ const HorizontalCardProduct: React.FC<HorizontalCardProductProps> = ({ category,
     setData(categoryProduct?.data);
   };
 
+  const getScrollAmount = (window.innerWidth < 768 ? 200 : 320);
+
   const scrollRight = () => {
     if (scrollElement.current) {
       scrollElement.current.scrollTo({
-        left: scrollElement.current.scrollLeft + 220,
+        left: scrollElement.current.scrollLeft + getScrollAmount,
         behavior: 'smooth',
       });
     }
@@ -43,7 +45,7 @@ const HorizontalCardProduct: React.FC<HorizontalCardProductProps> = ({ category,
   const scrollLeft = () => {
     if (scrollElement.current) {
       scrollElement.current.scrollTo({
-        left: scrollElement.current.scrollLeft - 220,
+        left: scrollElement.current.scrollLeft - getScrollAmount,
         behavior: 'smooth',
       });
     }

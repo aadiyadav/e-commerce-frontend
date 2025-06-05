@@ -9,7 +9,6 @@ import { TbReplaceFilled } from "react-icons/tb";
 import { FaTruckFast } from "react-icons/fa6";
 import { HiReceiptTax } from "react-icons/hi";
 import VerticalCardProduct from "../components/VerticalCardProduct";
-import CategoryWiseProductDisplay from "../components/CategoryWiseProductDisplay";
 import addToCart from "../helpers/addToCart";
 import Context from "../context";
 
@@ -63,6 +62,11 @@ const ProductDetails = () => {
     fetchDetails();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [params]);
+
+  useEffect(() => {
+    setSelectedImageIndex(0)
+  }, [data.productImage]);
+
   const context = useContext(Context);
 
   if (!context) {
@@ -89,7 +93,7 @@ const ProductDetails = () => {
   return (
     <div className="lg:py-16 md:py-10 py-4">
       <div className="flex md:flex-row flex-col-reverse md:px-10 lg:px-16 px-4">
-        <div className="flex md:block md:overflow-auto overflow-x-scroll scrollbar-none gap-2 max-w-full min-w-fit">
+        <div className="flex md:block md:overflow-auto overflow-x-scroll scrollbar-none gap-2 max-w-full min-w-fit justify-center">
           {
             loading ? (
               loadingImages.map((el, index) => {
@@ -101,26 +105,47 @@ const ProductDetails = () => {
               })) : (
               data?.productImage.map((el, index) => {
                 return (
-                  <div key={index} onMouseOver={() => handleImageClick(index)} className="md:w-20 w-14 md:my-3 p-0.5 cursor-pointer mix-blend-multiply border border-slate-400 shadow-sm flex justify-center items-center">
-                    <img src={el} alt={"Image" + index} className="w-full h-full" />
+                  <div key={index} onMouseOver={() => handleImageClick(index)} className="md:mt-0 mt-2 md:w-20 w-16 md:my-3 p-0.5 rounded-sm cursor-pointer mix-blend-multiply border border-slate-400 shadow-sm flex justify-center items-center">
+                    <img src={el} alt={"Image" + index} className="w-full max-h-[12vh] object-contain" />
                   </div>
                 );
               })
             )
           }
         </div>
-        <div className="my-3 md:mx-6 md:w-5/12 flex items-center border-2 border-slate-400 rounded-sm mix-blend-multiply overflow-hidden">
-          <div className="carousel flex mx-auto" style={{ transform: `translateX(-${selectedImageIndex * 100}%)` }}>
+        <div className="md:mx-6 md:w-5/12 w-full md:max-h-[80vh] md:min-h-[73vh] h-[50vh] flex items-center justify-center border-2 border-slate-400 rounded-md mix-blend-multiply overflow-hidden">
+          <div className="carousel flex mx-auto w-full h-full" style={{ transform: `translateX(-${selectedImageIndex * 100}%)` }}>
             {data?.productImage.map((image, index) => (
-              <img key={index} src={image} className="md:p-4 p-1 max-h-[calc(100vh-200px)] h-full cursor-pointer" alt={`Image`} onClick={() => setZoomImage(true)} />
+              <div key={index} className="w-full h-full flex items-center justify-center flex-shrink-0">
+                <img
+                  src={image}
+                  className="p-2 w-full h-full object-contain cursor-pointer"
+                  alt={`Image`}
+                  onClick={() => setZoomImage(true)}
+                />
+              </div>
             ))}
           </div>
         </div>
         {
           zoomImage &&
-            <div className="absolute hidden w-full h-full top-0 left-0 md:mt-8 md:flex justify-center items-center bg-slate-200 bg-opacity-70" onClick={() => setZoomImage(false)}>
-              <img src={data?.productImage[selectedImageIndex]} className="h-[700px] bg-white p-4" alt="" />
-            </div>
+            <>
+              {/* Prevent background scroll when zoomed */}
+              {typeof window !== 'undefined' && (document.body.style.overflow = 'hidden')}
+              <div
+                className="fixed z-50 inset-0 w-screen h-screen flex justify-center items-center bg-slate-100 bg-opacity-95 cursor-zoom-out"
+                onClick={() => {
+                  setZoomImage(false);
+                  if (typeof window !== 'undefined') document.body.style.overflow = '';
+                }}
+              >
+                <img
+                  src={data?.productImage[selectedImageIndex]}
+                  className="max-h-[90vh] max-w-[90vw] bg-white p-4 rounded shadow-lg"
+                  alt="Zoomed Product"
+                />
+              </div>
+            </>
         }
         <div className="py-10 px-6 md:w-1/2 w-full md:block hidden">
           <div className="text-sm flex items-center my-5 font-dmsans">
@@ -131,8 +156,8 @@ const ProductDetails = () => {
             <div>)</div>
           </div>
           <div className="text-3xl font-medium font-poppins">{data?.productName}</div>
+          <div className="text-bluelogo text-xl flex gap-1 font-inria font-semibold my-4">{data?.brandName}</div>
           <div className="my-3 md:text-base text-sm w-full text-zinc-800 font-extralight font-merri">{data?.description}</div>
-          <div className="text-bluelogo text-lg flex gap-1 font-inria font-semibold">{data?.brandName}</div>
           <div className="flex gap-3 mt-14 text-3xl items-center font-mont">
             <div className="font-medium">{displayINRCurrency(data?.sellingPrice)}</div>
             <div className="line-through font-light text-zinc-600 text-xl">{displayINRCurrency(data?.price)}</div>
@@ -153,8 +178,8 @@ const ProductDetails = () => {
           <div>)</div>
         </div>
         <div className="text-2xl font-medium font-poppins">{data?.productName}</div>
-        <div className="my-1 md:text-base text-sm w-full font-extralight font-merri">{data?.description}</div>
-        <div className="text-zinc-600 font-semibold flex mt-2 mb-6 gap-1 font-inria">{data?.brandName}x`</div>
+        <div className="text-bluelogo text-lg font-semibold flex gap-1 font-inria my-4">{data?.brandName}</div>
+        <div className="my-2 md:text-base text-sm w-full font-extralight font-merri">{data?.description}</div>
           <div className="flex gap-2 text-2xl items-center font-mont">
             <div className="font-medium">{displayINRCurrency(data?.sellingPrice)}</div>
             <div className="line-through font-light text-zinc-600 text-lg">{displayINRCurrency(data?.price)}</div>
@@ -198,7 +223,7 @@ const ProductDetails = () => {
       </div>
       <div className="h-0.5 bg-zinc-400 md:mx-10 lg:mx-16 mx-4"></div>
       {data.category && <div className="md:pt-6 pt-0">
-        <CategoryWiseProductDisplay category={data?.category} heading={"Recommended Products"} sortBy={"asc"} />
+        <VerticalCardProduct category={data?.category} heading={"Recommended Products"} />
         <VerticalCardProduct category={"mobiles"} heading={"See Something Related"} />
       </div>}
     </div>

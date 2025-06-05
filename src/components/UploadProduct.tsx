@@ -185,7 +185,7 @@ const UploadProduct: React.FC<UploadProductProps> = ({ onClose }) => {
             className="px-4 resize-none h-28 py-1 border rounded-md"
           />
 
-          <button type="submit" className="py-2.5 border-2 border-red-500 bg-red-500 hover:bg-white hover:text-red-500 transition-all text-white rounded-xl font-semibold text-lg font-inria">
+          <button type="submit" className="cursor-pointer py-2.5 border-2 border-red-500 bg-red-500 hover:bg-white hover:text-red-500 transition-all text-white rounded-xl font-semibold text-lg font-inria">
             Upload Product
           </button>
         </form>
