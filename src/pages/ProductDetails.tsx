@@ -224,7 +224,7 @@ const ProductDetails = () => {
       <div className="h-0.5 bg-zinc-400 md:mx-10 lg:mx-16 mx-4"></div>
       {data.category && <div className="md:pt-6 pt-0">
         <VerticalCardProduct category={data?.category} heading={"Recommended Products"} />
-        <VerticalCardProduct category={"mobiles"} heading={"See Something Related"} />
+        <VerticalCardProduct category={data?.category === "mobiles" ? "airpodes" : "mobiles"} heading={"See Something Related"} />
       </div>}
     </div>
   );
