@@ -180,7 +180,7 @@ const ProductDetails = () => {
         <div className="text-2xl font-medium font-poppins">{data?.productName}</div>
         <div className="text-bluelogo text-lg font-semibold flex gap-1 font-inria my-4">{data?.brandName}</div>
         <div className="my-2 md:text-base text-sm w-full font-extralight font-merri">{data?.description}</div>
-          <div className="flex gap-2 text-2xl items-center font-mont">
+          <div className="flex gap-2 text-2xl items-center font-mont mt-2">
             <div className="font-medium">{displayINRCurrency(data?.sellingPrice)}</div>
             <div className="line-through font-light text-zinc-600 text-lg">{displayINRCurrency(data?.price)}</div>
           </div>
