@@ -32,7 +32,7 @@ const CategoryList = () => {
   }, [])
 
   return (
-    <div className="md:p-4 py-4">
+    <div className="md:px-4 md:py-2 pt-2">
       <div className="flex justify-between overflow-scroll scrollbar-none p-2">
       {
         loading ? (

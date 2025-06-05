@@ -11,7 +11,7 @@ import mobileImg3 from "../assets/banner/img3_mobile.jpg";
 import mobileImg4 from "../assets/banner/img4_mobile.jpg";
 
 const images = [img1, img2, img3, img4, img5];
-const mobileImages = [mobileImg2, mobileImg3, mobileImg4];
+const mobileImages = [mobileImg3, mobileImg2, mobileImg4];
 
 const BannerProduct = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
