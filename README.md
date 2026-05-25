@@ -122,9 +122,9 @@ Below are the wireframes showcasing the design and layout of the Stud.io applica
 |-----------|----------|
 | ![Wireframe 3](public/3.png) | ![Wireframe 4](public/4.png) |
 
-| Checkout | Admin Dashboard |
-|----------|----------|
-| ![Wireframe 5](public/5.png) | ![Wireframe 6](public/6.png) |
+| Admin Dashboard |
+|----------|
+| ![Wireframe 5](public/5.png) |
 
 ## Contributing
 
