@@ -89,6 +89,10 @@ src/
 - `npm run preview` - Preview the production build locally
 - `npm run lint` - Run ESLint to check code quality
 
+## Deployed Link
+
+Check out the live version of Stud.io - https://studio-ecommerce.vercel.app
+
 ## Key Components
 
 - **Header**: Navigation bar with cart and user menu
@@ -110,9 +114,13 @@ The application uses Redux Toolkit for centralized state management with slices 
 
 Below are the wireframes showcasing the design and layout of the Stud.io application:
 
-| Home Page | Product Listing | Product Details | Shopping Cart |
-|-----------|-----------------|-----------------|---------------|
-| ![Wireframe 1](public/1.png) | ![Wireframe 2](public/2.png) | ![Wireframe 3](public/3.png) | ![Wireframe 4](public/4.png) |
+| Home Page Catalogue | Product Details |
+|-----------|-----------------|
+| ![Wireframe 1](public/1.png) | ![Wireframe 2](public/2.png) |
+
+| Product Listing | Shopping Cart |
+|-----------|----------|
+| ![Wireframe 3](public/3.png) | ![Wireframe 4](public/4.png) |
 
 | Checkout | Admin Dashboard |
 |----------|----------|
